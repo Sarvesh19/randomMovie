@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MaterialExampleModule} from './material.module';
+import {HttpClientModule,HTTP_INTERCEPTORS,HttpClientJsonpModule}     from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import {MaterialExampleModule} from './material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialExampleModule
+    MaterialExampleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
