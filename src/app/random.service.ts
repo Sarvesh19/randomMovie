@@ -16,17 +16,17 @@ export class RandomMovie {
 
   constructor(private http: HttpClient) { }
 
-//private baseUri = "https://electric-nodes-backend.herokuapp.com/";
+private baseUri = "https://whats-movie-backend.herokuapp.com/";
 
-private baseUri ="http://localhost:5000/"; 
+//private baseUri ="http://localhost:5000/"; 
 
   private params: any;
   private options: any;
 
 
 
-  getUser(user: any): Observable<any> {
-    return this.http.post(this.baseUri + 'login' , user);
+  getRandomMovie(): Observable<any> {
+    return this.http.get(this.baseUri + 'randomMovies' );
   } 
   
 
