@@ -4,7 +4,10 @@ body {
   margin: 0;
   padding: 30px;
 }
-
+ngb-rating {
+    color: #FFC107;
+    font-size: 80px;
+}
 html, body {
   height: 100%;
 }

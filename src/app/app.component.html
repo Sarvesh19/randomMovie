@@ -1,8 +1,9 @@
-    <button style="float: right" mat-raised-button color="primary" (click)="initUserList()">Next</button>
+    <button style="float: right;margin-bottom: 14px;" mat-raised-button color="primary" (click)="initUserList()">Next Random</button>
     <br>
 
+<mat-progress-bar style="margin-top: 5px" mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 
-<mat-card style="margin-top: 30px;" class="example-card" *ngFor="let data of dataSource">
+<mat-card style="margin-top: 30px;" class="example-card" *ngFor="let data of dataSource" (click)="goto(data.title)">
   <mat-card-title-group>
     <mat-card-title>{{data.title}}</mat-card-title>
     <mat-card-subtitle>{{data.genre}}</mat-card-subtitle>
@@ -10,10 +11,11 @@
   </mat-card-title-group>
   <mat-card-content>
     {{data.detail}}<br>
-    {{data.stars}}
+    {{data.stars}}<br>
+    <span style="color: #596fc6">IMDb Rating</span> : {{5*data.rating/10}}/5 |  <span>Votes</span> : {{data.votes}}
   </mat-card-content>
 </mat-card>
-
+ 
 
 <!-- <table style="width: -webkit-fill-available;margin-top: 28px;" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
