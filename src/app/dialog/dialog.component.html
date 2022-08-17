@@ -1,0 +1,31 @@
+<div mat-dialog-content>
+<!-- <mat-form-field appearance="fill">
+      <mat-label>What's your name?</mat-label>
+      <input matInput [(ngModel)]="name">
+    </mat-form-field> -->
+
+<mat-form-field appearance="fill">
+
+      <mat-label>Select Upvotes</mat-label>
+  <mat-select  [(ngModel)]="vote">
+    <mat-option *ngFor="let upvote of votes" [value]="upvote.value">
+      {{upvote.viewValue}}
+    </mat-option>
+  </mat-select>
+
+
+
+    </mat-form-field>
+<mat-form-field appearance="fill">
+
+     <mat-label>Genre</mat-label>
+  <mat-select  [(ngModel)]="genre" multiple>
+    <mat-option *ngFor="let gen of genreList" [value]="gen">{{gen}}</mat-option>
+  </mat-select>
+      </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+<!--   <button mat-button (click)="onNoClick()">No Thanks</button>
+ -->  <button style="    float: right;" mat-button mat-dialog-close (click)="foo()"  cdkFocusInitial>Find</button>
+</div>

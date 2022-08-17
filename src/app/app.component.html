@@ -1,5 +1,9 @@
+    <div>
+    <button mat-raised-button (click)="openDialog()">Search Criteria</button>
     <button style="float: right;margin-bottom: 14px;" mat-raised-button color="primary" (click)="initUserList()">Next Random</button>
+  </div>
     <br>
+
 
 <mat-progress-bar style="margin-top: 5px" mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 
@@ -15,6 +19,8 @@
     <span style="color: #596fc6">IMDb Rating</span> : {{5*data.rating/10}}/5 |  <span>Votes</span> : {{data.votes}}
   </mat-card-content>
 </mat-card>
+
+
  
 
 <!-- <table style="width: -webkit-fill-available;margin-top: 28px;" mat-table [dataSource]="dataSource" class="mat-elevation-z8">

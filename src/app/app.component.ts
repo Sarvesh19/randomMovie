@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,Inject } from '@angular/core';
 import {RandomMovie} from './random.service';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {DialogComponent} from './dialog/dialog.component';
 
 export interface PeriodicElement {
   image: string;
@@ -9,7 +10,10 @@ export interface PeriodicElement {
   detail: string;
   stars: string
 }
-
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 
 @Component({
@@ -21,10 +25,13 @@ export class AppComponent {
 	dataSource:any = [];
 	starRating : any = 4;
 	loading : boolean = true;
+	animal: string = "";
+  name: string = "";
  displayedColumns: string[] = [ 'image','title', 'weight', 'symbol'];
  // dataSource = ELEMENT_DATA;
 
-constructor(private appService: RandomMovie) {
+constructor(private appService: RandomMovie,public dialog: MatDialog, public dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,) {
 	this.loading  = true;
 	this.initUserList();
 
@@ -43,4 +50,21 @@ constructor(private appService: RandomMovie) {
     window.open(url, "_blank");
 
   }
+
+   openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    	console.info(this.data);
+      console.log('The dialog was closed');
+      this.name = result;
+    });
+  }
+ onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }
