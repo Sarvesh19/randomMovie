@@ -26,7 +26,7 @@ export class AppComponent {
 	starRating : any = 4;
 	loading : boolean = true;
 	animal: string = "";
-  name: string = "";
+  name: any = {};
  displayedColumns: string[] = [ 'image','title', 'weight', 'symbol'];
  // dataSource = ELEMENT_DATA;
 
@@ -63,7 +63,13 @@ constructor(private appService: RandomMovie,public dialog: MatDialog, public dia
       this.name = result;
       console.info(this.name);
     	this.loading  = true;
-
+    	if(this.name == undefined){
+    		this.name = {};
+		this.name.genre = localStorage.getItem('genre');
+    // let temp :[] = [];
+    // temp = this.genre;
+    this.name.vote = localStorage.getItem('vote');
+    	}
       this.appService.getRandomMovie(this.name).subscribe(response => {
     	this.loading  = false;
       this.dataSource = response;
