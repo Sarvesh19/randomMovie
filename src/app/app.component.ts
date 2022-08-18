@@ -63,17 +63,18 @@ constructor(private appService: RandomMovie,public dialog: MatDialog, public dia
       this.name = result;
       console.info(this.name);
     	this.loading  = true;
-    	if(this.name == undefined){
-    		this.name = {};
-		this.name.genre = localStorage.getItem('genre');
-    // let temp :[] = [];
-    // temp = this.genre;
-    this.name.vote = localStorage.getItem('vote');
-    	}
+    	if(this.name !== undefined){
+  //   		this.name = {};
+		// this.name.genre = localStorage.getItem('genre');
+  //   // let temp :[] = [];
+  //   // temp = this.genre;
+  //   this.name.vote = localStorage.getItem('vote');
+    	
       this.appService.getRandomMovie(this.name).subscribe(response => {
     	this.loading  = false;
       this.dataSource = response;
     });
+  }
 
     });
   }
