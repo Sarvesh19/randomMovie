@@ -74,6 +74,9 @@ constructor(private appService: RandomMovie,public dialog: MatDialog, public dia
     	this.loading  = false;
       this.dataSource = response;
     });
+  }else {
+  	    	this.loading  = false;
+
   }
 
     });
