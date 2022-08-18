@@ -15,7 +15,7 @@ export interface DialogData {
   name: string;
 }
 
-
+// @Ratan1973 heroku 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -39,7 +39,7 @@ constructor(private appService: RandomMovie,public dialog: MatDialog, public dia
 
   initUserList() {
   		this.loading  = true;
-    this.appService.getRandomMovie().subscribe(response => {
+    this.appService.getRandomMovie(this.name).subscribe(response => {
     	this.loading  = false;
       this.dataSource = response;
     });
@@ -58,9 +58,17 @@ constructor(private appService: RandomMovie,public dialog: MatDialog, public dia
     });
 
     dialogRef.afterClosed().subscribe(result => {
-    	console.info(this.data);
+    	
       console.log('The dialog was closed');
       this.name = result;
+      console.info(this.name);
+    	this.loading  = true;
+
+      this.appService.getRandomMovie(this.name).subscribe(response => {
+    	this.loading  = false;
+      this.dataSource = response;
+    });
+
     });
   }
  onNoClick(): void {

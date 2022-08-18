@@ -25,8 +25,8 @@ private baseUri = "https://whats-movie-backend.herokuapp.com/";
 
 
 
-  getRandomMovie(): Observable<any> {
-    return this.http.get(this.baseUri + 'randomMovies' );
+  getRandomMovie(criteria: any): Observable<any> {
+    return this.http.get(this.baseUri + 'randomMovies' +"?vote="+ criteria.vote +"&genre="+criteria.genre );
   } 
   
 
