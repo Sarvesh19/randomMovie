@@ -36,7 +36,7 @@ votes: Upvotes[] = [
   ];
 genre: any = [];
  vote: any = new FormControl('');
-  genreList: string[] = ['Crime', 'Drama', 'Mystery', 'Comedy',  'Family', 'Music' , 'Animation', 'Action', 'Adventure'];
+  genreList: string[] = ['Crime', 'Thriller', 'Drama', 'Mystery', 'Comedy',  'Family', 'Music' , 'Animation', 'Action', 'Adventure'];
  
 
   constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<DialogComponent>,
