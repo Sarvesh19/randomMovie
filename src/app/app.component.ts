@@ -27,6 +27,7 @@ export class AppComponent {
 	loading : boolean = true;
 	animal: string = "";
   name: any = {};
+  search: any;
  displayedColumns: string[] = [ 'image','title', 'weight', 'symbol'];
  // dataSource = ELEMENT_DATA;
 
@@ -39,6 +40,15 @@ constructor(private appService: RandomMovie,public dialog: MatDialog, public dia
 
   initUserList() {
   		this.loading  = true;
+  		if(this.name == undefined){
+
+  		    		this.name = {};
+  		 this.name.genre = localStorage.getItem('genre');
+  //   // let temp :[] = [];
+  //   // temp = this.genre;
+     this.name.vote = localStorage.getItem('vote');
+  		}
+		
     this.appService.getRandomMovie(this.name).subscribe(response => {
     	this.loading  = false;
       this.dataSource = response;
@@ -83,6 +93,10 @@ constructor(private appService: RandomMovie,public dialog: MatDialog, public dia
   }
  onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  Submit(event : any){
+console.info(event);
   }
 
 }

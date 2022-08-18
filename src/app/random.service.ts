@@ -16,9 +16,9 @@ export class RandomMovie {
 
   constructor(private http: HttpClient) { }
 
-private baseUri = "https://whats-movie-backend.herokuapp.com/";
+//private baseUri = "https://whats-movie-backend.herokuapp.com/";
 
-//private baseUri ="http://localhost:5000/"; 
+private baseUri ="http://localhost:5000/"; 
 
   private params: any;
   private options: any;

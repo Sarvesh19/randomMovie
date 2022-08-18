@@ -3,8 +3,18 @@
     <button style="float: right;margin-bottom: 14px;" mat-raised-button color="primary" (click)="initUserList()">Next Random</button>
   </div>
     <br>
+<!-- <span>Records Found: {{dataSource.length}}</span>
+ -->
 
+<!--  <mat-form-field>
+ --><!-- <form class="my-form" #loginForm=ngForm (ngSubmit)="Submit(search)">
+     <mat-card-actions>
+            <input matInput [(ngModel)]="search">
 
+            <button mat-raised-button type="submit" color="primary">LOGIN</button>
+     </mat-card-actions>
+    </form> -->
+  <!-- </mat-form-field> -->
 <mat-progress-bar style="margin-top: 5px" mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 
 <mat-card style="margin-top: 30px;" class="example-card" *ngFor="let data of dataSource" (click)="goto(data.title)">
